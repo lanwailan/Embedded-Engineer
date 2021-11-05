@@ -15,6 +15,7 @@ typedef PtrToSNode Stack;
 
 Stack CreateStack()
 {
+    //头结点只有链接下一级地址，所以本身是没有数据的
     Stack S = (Stack)malloc(sizeof(struct SNode));
     S->Next = NULL;
     return S;
@@ -27,7 +28,8 @@ Bool IsEmpty(Stack S)
 
 Bool Push(Stack S, ElementType X)
 {
-    Stack P = (Stack)malloc(sizeof(struct SNode));
+    //申请节点空间，所以在命名的时候用SNode，指针结果。可以直接PtrToSNode
+    struct SNode *P = (struct SNode *)malloc(sizeof(struct SNode));
     P->Data = X;
     P->Next = S->Next;
     S->Next = P;
