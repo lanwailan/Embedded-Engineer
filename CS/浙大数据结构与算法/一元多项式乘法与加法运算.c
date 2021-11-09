@@ -35,12 +35,53 @@ void PrintPoly(Polynomial p)
         t = t->link;
     }
 }
-Polynomial Add(Polynomial P1,Polynomial P2)
+Polynomial Add(Polynomial L1,Polynomial L2)
 {
-    Polynomial p1 = P1->link;
-    Polynomial p2 = P2->link;
-    Polynomial P3 = (Polynomial)malloc(sizeof(struct PolyNode));
-    Polynomial p3 = P3;
+    Polynomial p1 = L1;
+    Polynomial p2 = L2;
+    Polynomial L3 = (Polynomial)malloc(sizeof(struct PolyNode));
+    L3->link = NULL;
+    Polynomial head = L3;
+    Polynomial p3;
+    while(p1&&p2)
+    {
+        p3 = (Polynomial)malloc(sizeof( struct PolyNode));
+        if(p1->expon == p2->expon)
+        {
+            p3->coef = p1->coef + p2->coef;
+            p3->expon = p1->expon;
+            p1 = p1->link;
+            p2 = p2->link;
+        }
+        else if(p1->expon > p2->expon)
+        {
+            p3->coef = p1->coef;
+            p3->expon = p1->expon;
+            p1 = p1->link;
+        }
+        else
+        {
+            p3->coef = p2->coef;
+            p3->expon = p2->expon;
+            p2 = p2->link;
+        }
+        L3->link = p3;
+        L3 = L3->link;
+    }
+    while(p1)
+    {
+        L3->link = p1;
+        p1 = p1->link;
+        L3 = L3->link;
+    }
+    while(p2)
+    {
+        L3->link = p2;
+        p2 = p2->link;
+        L3 = L3->link;
+    }
+
+    return head->link;
     
 }
 int main()
@@ -49,8 +90,8 @@ int main()
     P1 = ReadPoly();
     P2 = ReadPoly();
     //PP = Mult(P1,P2);
-    PrintPoly(P1);
-    //PS = Add(P1,P2);
-    PrintPoly(P2);
+    //PrintPoly(P1);
+    PS = Add(P1,P2);
+    PrintPoly(PS);
     return 0;
 }
