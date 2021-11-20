@@ -1,0 +1,2 @@
+Dependencies for Project 'Experiment2', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Experiment2.s)(0x61986754)(--cpu ARM966E-S --bi --pd "__EVAL SETA 1" -g --apcs=interwork -I G:\Keil_v5\ARM\RV31\INC-I G:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 514"--list .\listings\experiment2.lst --xref -o .\objects\experiment2.o --depend .\objects\experiment2.d)
