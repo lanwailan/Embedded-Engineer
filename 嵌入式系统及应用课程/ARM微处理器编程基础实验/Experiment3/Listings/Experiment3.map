@@ -1,0 +1,107 @@
+Component: ARM Compiler 5.05 update 1 (build 106) Tool: armlink [4d0efa]
+
+==============================================================================
+
+Section Cross References
+
+    experiment3.o(Vect) refers to experiment3.o(SWIStack) for swi_stack
+
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    SWIStack                                 0x00000000   Section      256  experiment3.o(SWIStack)
+    Experiment3.s                            0x00000000   Number         0  experiment3.o ABSOLUTE
+    swi_stack                                0x00000000   Data         256  experiment3.o(SWIStack)
+    Vect                                     0x00001000   Section      300  experiment3.o(Vect)
+    Undefined_Handler                        0x00001040   ARM Code       0  experiment3.o(Vect)
+    Prefetch_Handler                         0x00001044   ARM Code       0  experiment3.o(Vect)
+    Abort_Handler                            0x00001048   ARM Code       0  experiment3.o(Vect)
+    IRQ_Handler                              0x00001050   ARM Code       0  experiment3.o(Vect)
+    FIQ_Handler                              0x00001054   ARM Code       0  experiment3.o(Vect)
+    Reset_Handler                            0x00001058   ARM Code       0  experiment3.o(Vect)
+    SWI_Handler                              0x00001084   ARM Code       0  experiment3.o(Vect)
+    SWInum0                                  0x000010c8   ARM Code       0  experiment3.o(Vect)
+    SWInum1                                  0x000010d8   ARM Code       0  experiment3.o(Vect)
+    SWInum2                                  0x000010e8   ARM Code       0  experiment3.o(Vect)
+    SWInum3                                  0x000010f8   ARM Code       0  experiment3.o(Vect)
+    SWInum4                                  0x00001108   ARM Code       0  experiment3.o(Vect)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv2$ARM_ISAv5$E$P$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$STANDARDLIB$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    Vector_Table                             0x00001000   ARM Code       0  experiment3.o(Vect)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x00001000
+
+  Load Region LR_1 (Base: 0x00001000, Size: 0x0000022c, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region ER_RW (Base: 0x00000000, Size: 0x00000100, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000100   Data   RW            1    SWIStack            experiment3.o
+
+
+    Execution Region ER_ZI (Base: 0x00000100, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+    Execution Region ER_RO (Base: 0x00001000, Size: 0x0000012c, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00001000   0x0000012c   Code   RO            2  * Vect                experiment3.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       300         56          0        256          0        392   experiment3.o
+
+    ----------------------------------------------------------------------
+       300         56          0        256          0        392   Object Totals
+         0          0          0          0          0          0   (incl. Generated)
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+         0          0          0          0          0          0   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+       300         56          0        256          0        392   Grand Totals
+       300         56          0        256          0        392   ELF Image Totals
+       300         56          0        256          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                  300 (   0.29kB)
+    Total RW  Size (RW Data + ZI Data)               256 (   0.25kB)
+    Total ROM Size (Code + RO Data + RW Data)        556 (   0.54kB)
+
+==============================================================================
+
