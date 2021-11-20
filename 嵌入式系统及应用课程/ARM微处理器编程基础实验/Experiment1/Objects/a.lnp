@@ -1,0 +1,5 @@
+--cpu ARM966E-S
+".\objects\experiment.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x00000100 --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\a.map" -o .\Objects\a.axf

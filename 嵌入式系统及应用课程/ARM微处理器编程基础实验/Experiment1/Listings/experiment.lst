@@ -1,0 +1,135 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000 0000000C 
+                       a       EQU              12          ;  ¶¨Òå³£Á¿a, ¸³Öµ1
+                                                            2
+    2 00000000 00000003 
+                       b       EQU              3           ;
+    3 00000000 00000007 
+                       c       EQU              7           ;
+    4 00000000         
+    5 00000000                 AREA             SWIStack,DATA, READWRITE
+    6 00000000 00000000 
+                       temp    DCD              0x0
+    7 00000004         
+    8 00000004                 AREA             Test1,CODE,READONLY
+    9 00000000                 CODE32
+   10 00000000                 ENTRY
+   11 00000000         
+   12 00000000 E3A0000C 
+                       START   MOV              r0,#a       ;½«r0ÖÃÎªa
+   13 00000004 E1A00400        MOV              r0,r0,lsl #8 ;r0 = r0<<8 Ïàµ±ÓÚ
+                                                            a³ËÒÔ2µÄ8³´·½
+   14 00000008 E3A01003        MOV              r1,#b       ;
+   15 0000000C E08020A1        ADD              r2,r0,r1,lsr #1 ;r2 = r0+r1>>1
+   16 00000010 E59F3028        LDR              r3 ,=temp   ;È¡Êý¾Ý»º³åÇøµØÖ·
+   17 00000014 E5832000        STR              r2,[r3]     ;½«ÔËËã½á¹û·ÅÈë»º³å
+                                                            Çø
+   18 00000018         
+   19 00000018 E3A00007        MOV              r0 , #c     ;½«r0ÖÃÎªc
+   20 0000001C E20000FF        AND              r0 , r0, #0xFF ; r0 = r0 & 0xFF
+                                                            
+   21 00000020 E3A01003        MOV              r1 ,  #b    ;½«r1ÖÃÎªb
+   22 00000024 E08020A1        ADD              r2 , r0, r1, lsr #1 
+                                                            ; r2 = r0 + r1>>1
+   23 00000028         
+   24 00000028         
+   25 00000028 E5930000        LDR              r0,[r3]     ;´Ó»º´æÇøÖÐÈ¡³öµÚÒ»
+                                                            ´ÎµÄÔËËã½á¹û
+   26 0000002C E3A01001        MOV              r1 ,#0x01   ;r1 = 1
+   27 00000030 E1800001        ORR              r0,r0,r1    ; r0=r0|r1
+   28 00000034 E1A01002        MOV              r1,r2       ; ½«µÚ¶þ´ÎÔËËã½á¹û·
+                                                            ÅÈër1
+   29 00000038 E08020A1        ADD              r2,r0,r1,lsr #1 ;r2=r0+r1>>1
+   30 0000003C         
+   31 0000003C EAFFFFEF        B                START
+   32 00000040         
+   33 00000040                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM966E-S --bi --apcs=i
+nterwork --depend=.\objects\experiment.d -o.\objects\experiment.o -IG:\Keil_v5\
+ARM\RV31\INC -IG:\Keil_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --prede
+fine="__UVISION_VERSION SETA 514" --list=.\listings\experiment.lst Experiment.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+SWIStack 00000000
+
+Symbol: SWIStack
+   Definitions
+      At line 5 in file Experiment.s
+   Uses
+      None
+Comment: SWIStack unused
+temp 00000000
+
+Symbol: temp
+   Definitions
+      At line 6 in file Experiment.s
+   Uses
+      At line 16 in file Experiment.s
+Comment: temp used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+START 00000000
+
+Symbol: START
+   Definitions
+      At line 12 in file Experiment.s
+   Uses
+      At line 31 in file Experiment.s
+Comment: START used once
+Test1 00000000
+
+Symbol: Test1
+   Definitions
+      At line 8 in file Experiment.s
+   Uses
+      None
+Comment: Test1 unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+a 0000000C
+
+Symbol: a
+   Definitions
+      At line 1 in file Experiment.s
+   Uses
+      At line 12 in file Experiment.s
+Comment: a used once
+b 00000003
+
+Symbol: b
+   Definitions
+      At line 2 in file Experiment.s
+   Uses
+      At line 14 in file Experiment.s
+      At line 21 in file Experiment.s
+
+c 00000007
+
+Symbol: c
+   Definitions
+      At line 3 in file Experiment.s
+   Uses
+      At line 19 in file Experiment.s
+Comment: c used once
+3 symbols
+341 symbols in table
